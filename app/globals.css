@@ -143,3 +143,57 @@ body {
   background-color: #6b7280;
 }
 
+/* Styles for the comment section */
+.comment-section {
+  margin-top: 2rem;
+  padding: 1rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background-color: var(--card);
+}
+
+.comment-section h2 {
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.comment-section form {
+  margin-bottom: 1rem;
+}
+
+.comment-section textarea {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background-color: var(--input);
+  color: var(--foreground);
+}
+
+.comment-section button {
+  margin-top: 0.5rem;
+  padding: 0.5rem 1rem;
+  background-color: var(--primary);
+  color: var(--primary-foreground);
+  border: none;
+  border-radius: var(--radius);
+  cursor: pointer;
+}
+
+.comment-section button:hover {
+  background-color: var(--primary-hover);
+}
+
+.comment-section .comments-list {
+  margin-top: 1rem;
+}
+
+.comment-section .comment {
+  margin-bottom: 0.5rem;
+  padding: 0.5rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background-color: var(--card);
+  color: var(--foreground);
+}
