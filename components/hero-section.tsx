@@ -71,8 +71,11 @@ export default function HeroSection() {
       <canvas ref={canvasRef} className="absolute inset-0 w-full h-full" />
       <div className="container mx-auto px-4 text-center relative z-10">
         <h1 className="text-5xl md:text-6xl font-bold mb-4 text-gray-900 dark:text-white">VishwamAI</h1>
+        <div className="inline-block px-4 py-2 mb-4 bg-[#00BFFF]/20 border border-[#00BFFF] rounded-full">
+          <span className="text-sm md:text-base font-semibold text-[#00BFFF]">Under Research & Development</span>
+        </div>
         <p className="text-xl md:text-2xl max-w-2xl mx-auto text-gray-700 dark:text-gray-300">
-          Revolutionizing Tomorrow with Intelligent Innovation
+          Revolutionizing Tomorrow with Intelligent Innovation - Coming Soon
         </p>
       </div>
     </section>
