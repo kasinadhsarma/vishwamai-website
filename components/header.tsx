@@ -47,11 +47,6 @@ export default function Header() {
               </Link>
             </li>
             <li>
-              <Link href="/blog" className="text-white hover:text-[#00BFFF] transition-colors">
-                Blog
-              </Link>
-            </li>
-            <li>
               <Link href="/#contact" className="text-white hover:text-[#00BFFF] transition-colors">
                 Contact
               </Link>
@@ -81,9 +76,6 @@ export default function Header() {
                 </Link>
                 <Link href="/#projects" className="text-lg font-medium hover:text-[#00BFFF] transition-colors">
                   Projects
-                </Link>
-                <Link href="/blog" className="text-lg font-medium hover:text-[#00BFFF] transition-colors">
-                  Blog
                 </Link>
                 <Link href="/#contact" className="text-lg font-medium hover:text-[#00BFFF] transition-colors">
                   Contact

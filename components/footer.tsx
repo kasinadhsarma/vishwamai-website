@@ -22,11 +22,6 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/blog" className="text-white hover:text-[#00BFFF] transition-colors">
-                  Blog
-                </Link>
-              </li>
-              <li>
                 <Link href="/#contact" className="text-white hover:text-[#00BFFF] transition-colors">
                   Contact
                 </Link>
