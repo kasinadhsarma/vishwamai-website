@@ -7,8 +7,8 @@ import { Analytics } from "@vercel/analytics/next"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "VishwamAI - Pioneering AI Development",
-  description: "Revolutionizing Tomorrow with Intelligent Innovation",
+  title: "VishwamAI - AI Solutions for Loneliness",
+  description: "Pioneering AI companions to combat loneliness. Developing PBAI (Loneliness Got It Right) - innovative technology for meaningful human connection and emotional support.",
 }
 
 export default function RootLayout({
