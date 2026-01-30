@@ -9,60 +9,95 @@ export default function HeroSection() {
   useEffect(() => {
     if (!canvasRef.current) return
 
+    // Check for WebGL support
+    const isWebGLAvailable = () => {
+      try {
+        const canvas = document.createElement("canvas")
+        return !!(window.WebGLRenderingContext && (canvas.getContext("webgl") || canvas.getContext("experimental-webgl")))
+      } catch (e) {
+        return false
+      }
+    }
+
+    if (!isWebGLAvailable()) {
+      console.warn("WebGL is not available")
+      return
+    }
+
     // Three.js setup
-    const scene = new THREE.Scene()
-    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000)
-    const renderer = new THREE.WebGLRenderer({
-      canvas: canvasRef.current,
-      alpha: true,
-      antialias: true,
-    })
+    let scene: THREE.Scene
+    let camera: THREE.PerspectiveCamera
+    let renderer: THREE.WebGLRenderer
+    let particles: THREE.Points
+    let geometry: THREE.BufferGeometry
+    let handleResize: () => void
+    let animateId: number
 
-    renderer.setSize(window.innerWidth, window.innerHeight)
-    renderer.setPixelRatio(window.devicePixelRatio)
+    try {
+      scene = new THREE.Scene()
+      camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000)
 
-    // Create particles
-    const geometry = new THREE.BufferGeometry()
-    const vertices = []
+      // Explicitly check if context creation fails even if WebGL is theoretically available
+      try {
+        renderer = new THREE.WebGLRenderer({
+          canvas: canvasRef.current,
+          alpha: true,
+          antialias: true,
+        })
+      } catch (e) {
+        console.error("Failed to create WebGLRenderer:", e)
+        return
+      }
 
-    for (let i = 0; i < 5000; i++) {
-      vertices.push(THREE.MathUtils.randFloatSpread(2000))
-      vertices.push(THREE.MathUtils.randFloatSpread(2000))
-      vertices.push(THREE.MathUtils.randFloatSpread(2000))
-    }
-
-    geometry.setAttribute("position", new THREE.Float32BufferAttribute(vertices, 3))
-    const particles = new THREE.Points(geometry, new THREE.PointsMaterial({ color: 0x00bfff, size: 2 }))
-
-    scene.add(particles)
-    camera.position.z = 1000
-
-    // Animation loop
-    const animate = () => {
-      requestAnimationFrame(animate)
-      particles.rotation.x += 0.0005
-      particles.rotation.y += 0.0005
-      renderer.render(scene, camera)
-    }
-
-    animate()
-
-    // Handle window resize
-    const handleResize = () => {
-      camera.aspect = window.innerWidth / window.innerHeight
-      camera.updateProjectionMatrix()
       renderer.setSize(window.innerWidth, window.innerHeight)
-    }
+      renderer.setPixelRatio(window.devicePixelRatio)
 
-    window.addEventListener("resize", handleResize)
+      // Create particles
+      geometry = new THREE.BufferGeometry()
+      const vertices = []
+
+      for (let i = 0; i < 5000; i++) {
+        vertices.push(THREE.MathUtils.randFloatSpread(2000))
+        vertices.push(THREE.MathUtils.randFloatSpread(2000))
+        vertices.push(THREE.MathUtils.randFloatSpread(2000))
+      }
+
+      geometry.setAttribute("position", new THREE.Float32BufferAttribute(vertices, 3))
+      particles = new THREE.Points(geometry, new THREE.PointsMaterial({ color: 0x00bfff, size: 2 }))
+
+      scene.add(particles)
+      camera.position.z = 1000
+
+      // Animation loop
+      const animate = () => {
+        animateId = requestAnimationFrame(animate)
+        particles.rotation.x += 0.0005
+        particles.rotation.y += 0.0005
+        renderer.render(scene, camera)
+      }
+
+      animate()
+
+      // Handle window resize
+      handleResize = () => {
+        camera.aspect = window.innerWidth / window.innerHeight
+        camera.updateProjectionMatrix()
+        renderer.setSize(window.innerWidth, window.innerHeight)
+      }
+
+      window.addEventListener("resize", handleResize)
+    } catch (error) {
+      console.error("Error initializing different Three.js scene:", error)
+    }
 
     // Cleanup
     return () => {
-      window.removeEventListener("resize", handleResize)
-      scene.remove(particles)
-      geometry.dispose()
-      particles.material.dispose()
-      renderer.dispose()
+      if (handleResize) window.removeEventListener("resize", handleResize)
+      if (animateId) cancelAnimationFrame(animateId)
+      if (scene && particles) scene.remove(particles)
+      if (geometry) geometry.dispose()
+      if (particles && particles.material) (particles.material as THREE.Material).dispose()
+      if (renderer) renderer.dispose()
     }
   }, [])
 
