@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <defs>
+    <linearGradient id="circleGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00BFFF;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#8A2BE2;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#FF1493;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background circle -->
+  <circle cx="100" cy="100" r="90" fill="url(#circleGradient)" />
+  
+  <!-- Inner ring -->
+  <circle cx="100" cy="100" r="70" fill="none" stroke="white" stroke-width="8" />
+  
+  <!-- Triangular elements -->
+  <polygon points="100,50 85,80 115,80" fill="white" />
+  <polygon points="100,150 85,120 115,120" fill="white" />
+  <polygon points="50,100 80,85 80,115" fill="white" />
+  <polygon points="150,100 120,85 120,115" fill="white" />
+  
+  <!-- Central dot -->
+  <circle cx="100" cy="100" r="10" fill="white" />
+</svg>
