@@ -110,10 +110,10 @@ export default function HeroSection() {
           <span className="text-sm md:text-base font-semibold text-[#00BFFF]">Under Research & Development</span>
         </div>
         <p className="text-xl md:text-2xl max-w-2xl mx-auto text-gray-700 dark:text-gray-300">
-          Pioneering AI Solutions to Combat Loneliness
+          Pioneering Agentic AI & Digital Fashion
         </p>
         <p className="text-lg md:text-xl max-w-3xl mx-auto mt-4 text-gray-600 dark:text-gray-400">
-          Currently developing <span className="text-[#00BFFF] font-semibold">Loneliness Got It Right (PBAI)</span> - An innovative AI companion addressing social isolation
+          Currently developing <span className="text-[#00BFFF] font-semibold">Design Wear</span> - A revolutionary platform for virtual fashion design and try-on
         </p>
       </div>
     </section>
