@@ -102,7 +102,7 @@ export default function HeroSection() {
   }, [])
 
   return (
-    <section id="home" className="relative h-screen flex items-center justify-center bg-white dark:bg-black">
+    <section id="home" className="relative h-screen flex items-center justify-center bg-white dark:bg-black scroll-mt-28">
       <canvas ref={canvasRef} className="absolute inset-0 w-full h-full" />
       <div className="container mx-auto px-4 text-center relative z-10">
         <h1 className="text-5xl md:text-6xl font-bold mb-4 text-gray-900 dark:text-white">VishwamAI</h1>
