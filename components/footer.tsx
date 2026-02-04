@@ -1,7 +1,7 @@
 "use client"
 
 import Link from "next/link"
-import { Github, Linkedin, Twitter } from "lucide-react"
+import { Github, Linkedin, Twitter, Mail } from "lucide-react"
 
 export default function Footer() {
   return (
@@ -19,11 +19,6 @@ export default function Footer() {
               <li>
                 <Link href="/#projects" className="text-white hover:text-[#00BFFF] transition-colors">
                   Projects
-                </Link>
-              </li>
-              <li>
-                <Link href="/#contact" className="text-white hover:text-[#00BFFF] transition-colors">
-                  Contact
                 </Link>
               </li>
               <li>
@@ -59,7 +54,7 @@ export default function Footer() {
                 <Twitter size={24} />
               </a>
               <a
-                href="https://www.linkedin.com/company/vishwamai"
+                href="https://www.linkedin.com/company/vishwamai-1"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-white hover:text-[#00BFFF] transition-colors"
@@ -75,6 +70,13 @@ export default function Footer() {
                 aria-label="GitHub"
               >
                 <Github size={24} />
+              </a>
+              <a
+                href="mailto:kasinadhsarma@gmail.com"
+                className="text-white hover:text-[#00BFFF] transition-colors"
+                aria-label="Email"
+              >
+                <Mail size={24} />
               </a>
             </div>
           </div>

@@ -32,22 +32,22 @@ export default function Header() {
           {/* Desktop Navigation */}
           <ul className="hidden md:flex space-x-8">
             <li>
-              <Link href="/#home" className="text-white hover:text-[#00BFFF] transition-colors">
+              <Link href="#home" className="text-white hover:text-[#00BFFF] transition-colors">
                 Home
               </Link>
             </li>
             <li>
-              <Link href="/#about" className="text-white hover:text-[#00BFFF] transition-colors">
+              <Link href="#about" className="text-white hover:text-[#00BFFF] transition-colors">
                 About
               </Link>
             </li>
             <li>
-              <Link href="/#projects" className="text-white hover:text-[#00BFFF] transition-colors">
+              <Link href="#projects" className="text-white hover:text-[#00BFFF] transition-colors">
                 Projects
               </Link>
             </li>
             <li>
-              <Link href="/#contact" className="text-white hover:text-[#00BFFF] transition-colors">
+              <Link href="#contact" className="text-white hover:text-[#00BFFF] transition-colors">
                 Contact
               </Link>
             </li>
@@ -68,16 +68,16 @@ export default function Header() {
             </SheetTrigger>
             <SheetContent side="right" className="bg-[#161616] text-white">
               <nav className="flex flex-col gap-4 mt-8">
-                <Link href="/#home" className="text-lg font-medium hover:text-[#00BFFF] transition-colors">
+                <Link href="#home" className="text-lg font-medium hover:text-[#00BFFF] transition-colors">
                   Home
                 </Link>
-                <Link href="/#about" className="text-lg font-medium hover:text-[#00BFFF] transition-colors">
+                <Link href="#about" className="text-lg font-medium hover:text-[#00BFFF] transition-colors">
                   About
                 </Link>
-                <Link href="/#projects" className="text-lg font-medium hover:text-[#00BFFF] transition-colors">
+                <Link href="#projects" className="text-lg font-medium hover:text-[#00BFFF] transition-colors">
                   Projects
                 </Link>
-                <Link href="/#contact" className="text-lg font-medium hover:text-[#00BFFF] transition-colors">
+                <Link href="#contact" className="text-lg font-medium hover:text-[#00BFFF] transition-colors">
                   Contact
                 </Link>
                 <div className="mt-4 flex items-center">
