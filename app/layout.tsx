@@ -1,21 +1,14 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Inter } from "next/font/google";
 import { ThemeProvider } from "@/components/theme-provider";
+import { Analytics } from "@vercel/analytics/react";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "VishwamAI - Pioneering Agentic AI",
-  description: "Revolutionizing Tomorrow with Intelligent Innovation",
+  description: "Revolutionizing Tomorrow with Intelligent Innovation. Building advanced AI systems that solve complex real-world problems.",
 };
 
 export default function RootLayout({
@@ -25,12 +18,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark" suppressHydrationWarning>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-black text-white`}
-      >
+      <head>
+        <link rel="icon" href="/vishwamai-icon.svg" type="image/svg+xml" />
+      </head>
+      <body className={`${inter.className} antialiased bg-black text-white`}>
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false} forcedTheme="dark">
           {children}
         </ThemeProvider>
+        <Analytics />
       </body>
     </html>
   );
